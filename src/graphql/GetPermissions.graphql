@@ -1,0 +1,7 @@
+query {
+    permissions {
+        id
+        name
+        description
+    }
+}

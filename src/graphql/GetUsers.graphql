@@ -1,0 +1,19 @@
+query {
+    users {
+        id
+        surname
+        forename
+        mail
+        phone
+        password
+        roles {
+            id
+            name
+            permissions {
+                id
+                name
+                description
+            }
+        }
+    }
+}

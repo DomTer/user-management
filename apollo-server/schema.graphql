@@ -2,59 +2,72 @@
 scalar JSON
 scalar Upload
 
-"It will increment!"
-type Counter {
-  "Number of increments"
-  count: Int!
-  "Full message for testing"
-  countStr: String
+
+input IdInput {
+  id: String!
 }
 
-"A text message send by users"
-type Message {
+input CreatePermission {
+  name: String!
+  description: String
+}
+
+input CreateRole {
+  name: String!
+  permissions: [IdInput!]
+}
+
+input CreateUser {
+  forename: String!
+  surname: String!
+  mail: String!
+  phone: String!
+  password: String!
+  roles: [IdInput!]
+}
+
+input PermissionInput {
+  id: String!
+  name: String!
+  description: String
+}
+
+input RoleInput {
+  id: String!
+  name: String!
+  permissions: [PermissionInput!]
+}
+
+type User {
   id: ID!
-  "Message content"
-  text: String!
+  forename: String!
+  surname: String!
+  mail: String!
+  phone: String!
+  password: String!
+  roles: [Role!]
 }
 
-"Input from user to create a message"
-input MessageInput {
-  "Message content"
-  text: String!
+type Role {
+  id: ID!,
+  name: String!,
+  permissions: [Permission!]
 }
 
-type File {
-  id: ID!
-  path: String!
-  filename: String!
-  mimetype: String!
-  encoding: String!
+type Permission {
+  id: ID!,
+  name: String!,
+  description: String
 }
-
 
 type Query {
-  "Test query with a parameter"
-  hello(name: String): String!
-  "List of messages sent by users"
-  messages: [Message]
-  uploads: [File]
-
+  users: [User]
+  roles: [Role]
+  permissions: [Permission]
 }
 
 type Mutation {
-  myMutation: String!
-  "Add a message and publish it on 'messages' subscription channel"
-  addMessage (input: MessageInput!): Message!
-  singleUpload (file: Upload!): File!
-  multipleUpload (files: [Upload!]!): [File!]!
-
-}
-
-type Subscription {
-  mySub: String!
-  "This will update every 2 seconds"
-  counter: Counter!
-  "When a new message is added"
-  messageAdded: Message!
-
+  createRole (input: CreateRole!): Role!
+  createPermission (input: CreatePermission!): Permission!
+  createUser (input: CreateUser!): User!
 }

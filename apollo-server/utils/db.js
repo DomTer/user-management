@@ -1,14 +1,18 @@
-import Lowdb from 'lowdb'
-import FileSync from 'lowdb/adapters/FileSync'
+import { JSONFileSync, LowSync } from 'lowdb'
 import mkdirp from 'mkdirp'
 import { resolve } from 'path'
 
 mkdirp(resolve(__dirname, '../../live'))
 
-export const db = new Lowdb(new FileSync(resolve(__dirname, '../../live/db.json')))
+// Use JSON file for storage
+const file = resolve(__dirname, '../../live/db.json')
+const adapter = new JSONFileSync(file)
+
+export const db = new LowSync(adapter)
 
 // Seed an empty DB
 db.defaults({
-  messages: [],
-  uploads: [],
+  users: [],
+  roles: [],
+  permissions: []
 }).write()

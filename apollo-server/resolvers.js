@@ -1,72 +1,79 @@
 import GraphQLJSON from 'graphql-type-json'
 import shortid from 'shortid'
-
+import lodash from 'lodash'
 
 export default {
   JSON: GraphQLJSON,
-
-  Counter: {
-    countStr: counter => `Current count: ${counter.count}`,
-  },
-
-
   Query: {
-    hello: (root, { name }) => `Hello ${name || 'World'}!`,
-    messages: (root, args, { db }) => db.get('messages').value(),
-    uploads: (root, args, { db }) => db.get('uploads').value(),
-
+    users: (root, args, {db}) => db.get('users').value(),
+    roles: (root, args, {db}) => db.get('roles').value(),
+    permissions: (root, args, {db}) => db.get('permissions').value()
   },
 
   Mutation: {
-    myMutation: (root, args, context) => {
-      const message = 'My mutation completed!'
-      context.pubsub.publish('hey', { mySub: message })
-      return message
-    },
-    addMessage: (root, { input }, { pubsub, db }) => {
-      const message = {
+    createPermission: (root, {input}, {db}) => {
+      const permission = {
         id: shortid.generate(),
-        text: input.text,
+        name: input.name,
+        description: input.description
+      }
+      db
+          .get('permissions')
+          .push(permission)
+          .last()
+          .write()
+
+      return permission
+    },
+
+    createRole: (root, {input}, {db}) => {
+      db.chain = lodash.chain(db.data)
+
+
+     // const permissions = db.get('permissions')
+     //     .filter(permission => input.permissions.includes(permission.id));
+
+      const permissions = db.chain.get('permissions');
+      const whaterver = input.permissions.map(permissionInput => permissions.find({id: permissionInput.id}).value())
+      if(whaterver.some(permission => permission === null)) {
+        throw new Error('nope!')
+      }
+
+      const test = db.chain.get('permissions').find({id: '7c980c8f-76bc-4a46-a8b6-647dc8dad5dc'}).value()
+
+      console.log(whaterver);
+      console.log(test)
+      const role = {
+        id: shortid.generate(),
+        name: input.name,
+        permissions: whaterver
+      }
+      db
+          .get('roles')
+          .push(role)
+          .last()
+          .write()
+
+      return role
+    },
+
+    createUser: (root, {input}, {db}) => {
+      const user = {
+        forename: input.forename,
+        surname: input.surname,
+        mail: input.mail,
+        phone: input.phone,
+        password: input.password
+        // roles: input.roles
       }
 
       db
-        .get('messages')
-        .push(message)
-        .last()
-        .write()
+          .get('users')
+          .push(user)
+          .last()
+          .write()
 
-      pubsub.publish('messages', { messageAdded: message })
-
-      return message
+      return user
     },
-
-    singleUpload: (root, { file }, { processUpload }) => processUpload(file),
-    multipleUpload: (root, { files }, { processUpload }) => Promise.all(files.map(processUpload)),
-
-  },
-
-  Subscription: {
-    mySub: {
-      subscribe: (parent, args, { pubsub }) => pubsub.asyncIterator('hey'),
-    },
-    counter: {
-      subscribe: (parent, args, { pubsub }) => {
-        const channel = Math.random().toString(36).substring(2, 15) // random channel name
-        let count = 0
-        setInterval(() => pubsub.publish(
-          channel,
-          {
-            // eslint-disable-next-line no-plusplus
-            counter: { count: count++ },
-          }
-        ), 2000)
-        return pubsub.asyncIterator(channel)
-      },
-    },
-
-    messageAdded: {
-      subscribe: (parent, args, { pubsub }) => pubsub.asyncIterator('messages'),
-    },
-
   },
 }
