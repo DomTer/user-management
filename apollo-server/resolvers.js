@@ -1,6 +1,5 @@
 import GraphQLJSON from 'graphql-type-json'
 import shortid from 'shortid'
-import lodash from 'lodash'
 
 export default {
   JSON: GraphQLJSON,
@@ -32,12 +31,13 @@ export default {
         name: input.name,
         description: input.description
       }
-      db
-          .get('permissions')
-          .push(permission)
-          .last()
-          .write()
-
+      console.log(
+          db
+              .get('permissions')
+              .push(permission)
+              .last()
+              .write()
+      )
       return permission
     },
 

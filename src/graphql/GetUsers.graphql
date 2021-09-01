@@ -8,12 +8,6 @@ query {
         password
         roles {
             id
-            name
-            permissions {
-                id
-                name
-                description
-            }
         }
     }
 }

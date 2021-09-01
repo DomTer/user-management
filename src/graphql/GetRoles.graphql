@@ -2,10 +2,6 @@ query {
     roles {
         id
         name
-        permissions {
-            id
-            name
-            description
-        }
+        permissions { id }
     }
 }
