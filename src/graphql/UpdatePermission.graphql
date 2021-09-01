@@ -1,0 +1,12 @@
+mutation CreatePermission($id: ID!, $name: String!, $description: String) {
+    updatePermission(
+        input: {
+            id: $id
+            name: $name
+            description: $description
+        }
+    ) {
+        id
+    }
+}
+}

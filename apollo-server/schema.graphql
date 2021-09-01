@@ -4,7 +4,7 @@ scalar Upload
 
 
 input IdInput {
-  id: String!
+  id: ID!
 }
 
 input CreatePermission {
@@ -12,8 +12,20 @@ input CreatePermission {
   description: String
 }
 
+input UpdatePermission {
+  id: ID!
+  name: String
+  description: String
+}
+
 input CreateRole {
   name: String!
+  permissions: [IdInput!]
+}
+
+input UpdateRole {
+  id: ID!
+  name: String
   permissions: [IdInput!]
 }
 
@@ -26,16 +38,14 @@ input CreateUser {
   roles: [IdInput!]
 }
 
-input PermissionInput {
-  id: String!
-  name: String!
-  description: String
-}
-
-input RoleInput {
-  id: String!
-  name: String!
-  permissions: [PermissionInput!]
+input UpdateUser {
+  id: ID!
+  forename: String
+  surname: String!
+  mail: String!
+  phone: String!
+  password: String!
+  roles: [IdInput!]
 }
 
 type User {
@@ -61,13 +71,25 @@ type Permission {
 }
 
 type Query {
-  users: [User]
-  roles: [Role]
-  permissions: [Permission]
+  users:                        [User]
+  roles:                        [Role]
+  permissions:                  [Permission]
+
+  user(input: IdInput!):        User
+  role(input: IdInput!):        Role
+  permission(input: IdInput!):  Permission
 }
 
 type Mutation {
-  createRole (input: CreateRole!): Role!
-  createPermission (input: CreatePermission!): Permission!
-  createUser (input: CreateUser!): User!
+  createRole        (input: CreateRole!): Role!
+  createPermission  (input: CreatePermission!): Permission!
+  createUser        (input: CreateUser!): User!
+
+  deleteRole        (input: IdInput!): Role!
+  deletePermission  (input: IdInput!): Permission!
+  deleteUser        (input: IdInput!): User!
+
+  updateRole        (input: UpdateRole!): Role!
+  updatePermission  (input: UpdatePermission!): Permission!
+  updateUser        (input: UpdateUser!): User!
 }

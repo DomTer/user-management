@@ -16,11 +16,11 @@
     "graphql-tools": "^8.1.0",
     "graphql-type-json": "^0.2.1",
     "lodash": "^4.17.21",
-    "lowdb": "^2.1.0",
     "mkdirp": "^0.5.1",
     "shortid": "^2.2.8",
     "vue": "^2.6.11",
-    "vue-apollo": "^3.0.0-beta.11",
+    "vue-apollo": "^3.0.7",
+    "lowdb": "^1.0.0",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"

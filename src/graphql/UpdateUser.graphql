@@ -1,6 +1,7 @@
-mutation CreateUser( $forename: String!, $surname: String!, $mail: String!, $phone: String!, $password: String!, $roles: [IdInput!] ) {
-    createUser(
+mutation UpdateUser( $id: ID!, $forename: String!, $surname: String!, $mail: String!, $phone: String!, $password: String!, $roles: [IdInput!] ) {
+    updateUser(
         input: {
+            id: $id
             forename: $forename
             surname: $surname
             mail: $mail

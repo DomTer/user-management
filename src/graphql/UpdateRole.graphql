@@ -1,0 +1,14 @@
+mutation UpdateRole($id: ID!, $name: String!, $permissions: [IdInput!]) {
+    updateRole(
+        input: {
+            id: $id
+            name: $name
+            permissions: $permissions
+        }
+    ) {
+        id
+        name
+        permissions {id}
+    }
+}
+}

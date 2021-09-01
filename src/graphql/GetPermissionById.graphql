@@ -1,0 +1,7 @@
+query GetPermissionById($id: ID!) {
+    permission(input:{ id: $id })  {
+        id
+        name
+        description
+    }
+}

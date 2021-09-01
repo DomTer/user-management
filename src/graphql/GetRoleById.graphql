@@ -1,0 +1,10 @@
+query GetRoleById($id: ID!) {
+    role(input:{ id: $id })  {
+        id
+        name
+        permissions {
+            id
+        }
+    }
+}
+}

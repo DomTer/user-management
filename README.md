@@ -5,20 +5,19 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development -> http://localhost:8080/
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Starts the Apollo Service 
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+yarn apollo:start
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## TODOs
+- Connect to external database.
+- User Authentication
+- Form Validations
+- Tests
