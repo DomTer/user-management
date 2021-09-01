@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <v-container>
 
     <h1>Roles</h1>
@@ -44,6 +44,7 @@
 
 <script>
   export default {
+    functional: true,
     name: 'Home',
     data: () => ({
 

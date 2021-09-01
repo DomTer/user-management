@@ -1,4 +1,4 @@
-mutation CreatePermission($id: ID!, $name: String!, $description: String) {
+mutation UpdatePermission($id: ID!, $name: String!, $description: String) {
     updatePermission(
         input: {
             id: $id
@@ -8,5 +8,4 @@ mutation CreatePermission($id: ID!, $name: String!, $description: String) {
     ) {
         id
     }
-}
 }

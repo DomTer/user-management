@@ -13,16 +13,47 @@
       >
         <ApolloMutation
             :mutation="require('../graphql/CreateUser.graphql')"
-            :variables="{
-                forename,
-                surname,
-                mail,
-                phone,
-                password
-             }"
+            :variables="user"
             @done="onDone"
         >
           <template v-slot="{ mutate, loading, error }">
+            <v-form v-model="valid">
+              <v-container>
+                    <v-text-field
+                        v-model="user.forename"
+                        :rules="nameRules"
+                        :counter="10"
+                        label="First name"
+                        required
+                    ></v-text-field>
+                    <v-text-field
+                        v-model="lastname"
+                        :rules="nameRules"
+                        :counter="10"
+                        label="Last name"
+                        required
+                    ></v-text-field>
+                    <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="E-mail"
+                        required
+                    ></v-text-field>
+                <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="E-mail"
+                    required
+                ></v-text-field>
+                <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="E-mail"
+                    required
+                ></v-text-field>
+              </v-container>
+            </v-form>
+
             <button :disabled="loading" @click="mutate()">Click me</button>
             <p v-if="error">An error occurred: {{ error }}</p>
           </template>
@@ -69,12 +100,14 @@ export default {
   name: "Users",
   data() {
     return {
-          forename: 'foo',
-          surname: 'bar',
-          mail: 'baz',
-          phone: '123',
-          password: 'password',
-          roles: ['foo', 'bar'],
+      user: {
+        forename: '',
+        surname: '',
+        mail: '',
+        phone: '',
+        password: '',
+        roles: [{id: "cKEOTt1h8"}],
+      }
     };
   },
 }

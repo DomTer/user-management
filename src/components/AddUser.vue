@@ -1,14 +1,14 @@
 <template>
   <form @submit="submit">
     <fieldset>
-      <input type="text" placeholder="Title" v-model="forename">
-      <input type="text" placeholder="Director" v-model="surname">
-      <input type="text" placeholder="Composer" v-model="mail">
-      <input type="text" placeholder="Release date" v-model="phone">
-      <input type="text" placeholder="Release date" v-model="password">
+      <input type="text" placeholder="Forename" v-model="forename">
+      <input type="text" placeholder="Surname" v-model="surname">
+      <input type="text" placeholder="E-Mailr" v-model="mail">
+      <input type="text" placeholder="Phone" v-model="phone">
+      <input type="text" placeholder="Password" v-model="password">
       <v-select
           v-model="value"
-          :items="roles"
+          :items="user.roles"
           label="Select Role(s)"
           multiple
       >
@@ -30,19 +30,21 @@
 </template>
 
 <script>
-import ADD_USER from '../graphql/AddUser.graphql';
+import CREATE_USER from '../graphql/CreateUser.graphql';
 
 export default {
   name: "AddUser",
 
   data() {
     return {
-        forename: '',
-        surname: '',
-        mail: '',
-        phone: '',
-        password: '',
-        roles: ['foo', 'bar'],
+      user: {
+        forename: 'fdgdfg',
+        surname: 'fdgdf',
+        mail: 'dfgdf',
+        phone: 'fdgdfg',
+        password: 'dfgdfg',
+        roles: [{id: "cKEOTt1h8"}],
+      }
     };
   },
   methods: {
@@ -50,7 +52,7 @@ export default {
       e.preventDefault();
       const {forename, surname, mail, phone, password, roles } = this.$data;
       this.$apollo.mutate({
-        mutation: ADD_USER,
+        mutation: CREATE_USER,
         variables: {
           forename,
           surname,
@@ -59,7 +61,6 @@ export default {
           password,
           roles
         },
-        refetchQueries: ["Users"]
       });
     }
   }
