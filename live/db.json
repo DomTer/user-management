@@ -1,0 +1,103 @@
+{
+  "messages": [],
+  "uploads": [],
+  "roles": [
+    {
+      "id": "cKEOTt1h8",
+      "name": "ROLE1",
+      "permissions": [
+        {
+          "id": "NubS-n1em"
+        }
+      ]
+    },
+    {
+      "id": "PwS3QPlWT",
+      "name": "ROLE2",
+      "permissions": [
+        {
+          "id": "NubS-n1em"
+        },
+        {
+          "id": "2-hFkXNFz"
+        }
+      ]
+    },
+    {
+      "id": "OPoepNg9C",
+      "name": "ROLE3",
+      "permissions": [
+        {
+          "id": "NubS-n1em"
+        },
+        {
+          "id": "2-hFkXNFz"
+        },
+        {
+          "id": "DD5GNsETb"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "GaGfVorqW",
+      "forename": "Dominik",
+      "surname": "Terstappen",
+      "mail": "d.terstappen@gmail.com",
+      "phone": "0123456789",
+      "password": "password123",
+      "roles": [
+        {
+          "id": "OPoepNg9C"
+        }
+      ]
+    },
+    {
+      "id": "7E_tUbQyF",
+      "forename": "Foobert",
+      "surname": "Barthold",
+      "mail": "foo@bar.com",
+      "phone": "0123456789",
+      "password": "password123",
+      "roles": [
+        {
+          "id": "cKEOTt1h8"
+        }
+      ]
+    },
+    {
+      "id": "ETVL5cyJV",
+      "forename": "Max",
+      "surname": "Mustermann",
+      "mail": "max@example.com",
+      "phone": "0123456789",
+      "password": "password123",
+      "roles": [
+        {
+          "id": "cKEOTt1h8"
+        },
+        {
+          "id": "PwS3QPlWT"
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "NubS-n1em",
+      "name": "permission1",
+      "description": "The first Permission"
+    },
+    {
+      "id": "2-hFkXNFz",
+      "name": "permission2",
+      "description": "The second Permission"
+    },
+    {
+      "id": "DD5GNsETb",
+      "name": "permission3",
+      "description": "The third Permission"
+    }
+  ]
+}
