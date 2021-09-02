@@ -11,54 +11,7 @@
           flat
           tile
       >
-        <ApolloMutation
-            :mutation="require('../graphql/CreateUser.graphql')"
-            :variables="user"
-            @done="onDone"
-        >
-          <template v-slot="{ mutate, loading, error }">
-            <v-form v-model="valid">
-              <v-container>
-                    <v-text-field
-                        v-model="user.forename"
-                        :rules="nameRules"
-                        :counter="10"
-                        label="First name"
-                        required
-                    ></v-text-field>
-                    <v-text-field
-                        v-model="lastname"
-                        :rules="nameRules"
-                        :counter="10"
-                        label="Last name"
-                        required
-                    ></v-text-field>
-                    <v-text-field
-                        v-model="email"
-                        :rules="emailRules"
-                        label="E-mail"
-                        required
-                    ></v-text-field>
-                <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    required
-                ></v-text-field>
-                <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    required
-                ></v-text-field>
-              </v-container>
-            </v-form>
-
-            <button :disabled="loading" @click="mutate()">Click me</button>
-            <p v-if="error">An error occurred: {{ error }}</p>
-          </template>
-        </ApolloMutation>
-
+        <UserCreateForm />
       </v-card>
     </v-col>
     <v-col
@@ -96,8 +49,10 @@
 </template>
 
 <script>
+import UserCreateForm from "../components/UserCreateForm";
 export default {
   name: "Users",
+  components: {UserCreateForm},
   data() {
     return {
       user: {

@@ -64,22 +64,6 @@ export default {
   data: () => ({
     tab: 'roles',
   }),
-
-  computed: {
-
-  },
-
-  watch: {
-  },
-
-  created () {
-
-  },
-
-  methods: {
-
-
-  },
 }
 </script>
 

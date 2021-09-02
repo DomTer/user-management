@@ -11,4 +11,3 @@ mutation UpdateRole($id: ID!, $name: String!, $permissions: [IdInput!]) {
         permissions {id}
     }
 }
-}

@@ -37,145 +37,6 @@
           "id": "DD5GNsETb"
         }
       ]
-    },
-    {
-      "id": "30NhBUPQK",
-      "name": "dfsd",
-      "permissions": [
-        {
-          "id": "NubS-n1em"
-        },
-        {
-          "id": "DD5GNsETb"
-        }
-      ]
-    },
-    {
-      "id": "cwXVE1vvk",
-      "name": "dfsd",
-      "permissions": []
-    },
-    {
-      "id": "JzOmMeIue",
-      "name": "hgh",
-      "permissions": [
-        {
-          "id": "2-hFkXNFz"
-        }
-      ]
-    },
-    {
-      "id": "OvihE69TT",
-      "name": "hgh",
-      "permissions": [
-        {
-          "id": "2-hFkXNFz"
-        },
-        {
-          "id": "NubS-n1em"
-        }
-      ]
-    },
-    {
-      "id": "RoaC8bwEt",
-      "name": "fsdf",
-      "permissions": [
-        {
-          "id": "NubS-n1em"
-        }
-      ]
-    },
-    {
-      "id": "DtgG7KMDx",
-      "name": "dsf",
-      "permissions": [
-        {
-          "id": "NubS-n1em"
-        }
-      ]
-    },
-    {
-      "id": "q07kHuoOl",
-      "name": "",
-      "permissions": [
-        {
-          "id": "2-hFkXNFz"
-        }
-      ]
-    },
-    {
-      "id": "b_BqWiDb2",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "EtzTWdB_N",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "w_qnFiEju",
-      "name": "",
-      "permissions": [
-        {
-          "id": "C1HN8uA1r"
-        }
-      ]
-    },
-    {
-      "id": "7ZE3Imyxn",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "pZicL6uT1",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "P53fvHBIw",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "cTGY-bQhz",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "_6uoV7qAL",
-      "name": "",
-      "permissions": []
-    },
-    {
-      "id": "BULIcaFyp",
-      "name": "",
-      "permissions": [
-        {
-          "id": "2-hFkXNFz"
-        },
-        {
-          "id": "DD5GNsETb"
-        },
-        {
-          "id": "C1HN8uA1r"
-        }
-      ]
-    },
-    {
-      "id": "PajDDKJX1",
-      "name": "dd",
-      "permissions": [
-        {
-          "id": "2-hFkXNFz"
-        },
-        {
-          "id": "DD5GNsETb"
-        },
-        {
-          "id": "NubS-n1em"
-        }
-      ]
     }
   ],
   "users": [
@@ -267,6 +128,32 @@
       "mail": "",
       "phone": "",
       "password": "",
+      "roles": [
+        {
+          "id": "cKEOTt1h8"
+        }
+      ]
+    },
+    {
+      "id": "hHfu_R_Fp",
+      "forename": "",
+      "surname": "",
+      "mail": "",
+      "phone": "",
+      "password": "",
+      "roles": [
+        {
+          "id": "cKEOTt1h8"
+        }
+      ]
+    },
+    {
+      "id": "1MAcq8azA",
+      "forename": "Dominik",
+      "surname": "Terstappen",
+      "mail": "d.terstappen@gmail.com",
+      "phone": "015254286514",
+      "password": "asd",
       "roles": [
         {
           "id": "cKEOTt1h8"
