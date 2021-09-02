@@ -11,7 +11,27 @@
           flat
           tile
       >
-        <UserCreateForm />
+        <v-tabs
+            class="pa-3 grey lighten-5"
+            grow
+        >
+          <v-tabs-slider />
+          <v-tab
+              class="grey lighten-5"
+              @click="tab = 'create'"
+          >
+            create
+          </v-tab>
+          <v-tab
+              class="grey lighten-5"
+              @click="tab = 'info'"
+              :key="tab"
+          >
+            info
+          </v-tab>
+          <!-- TODO: fix tab slider -->
+        </v-tabs>
+        <UserCreateForm v-if="tab === 'create'"/>
       </v-card>
     </v-col>
     <v-col
@@ -24,25 +44,7 @@
           flat
           tile
       >
-        <h1>Users</h1>
-        <ApolloQuery
-            :query="require('../graphql/GetUsers.graphql')"
-        >
-          <template v-slot="{ result: { loading, error, data } }">
-            <!-- Loading -->
-            <div v-if="loading" class="loading apollo">Loading...</div>
-            <!-- Error -->
-            <div v-else-if="error" class="error apollo">An error occured</div>
-            <!-- Result -->
-            <div v-else-if="data" class="result apollo">
-              <div v-for="user in data.users" :key="user.id">
-                {{ user}}
-              </div>
-            </div>
-            <!-- No result -->
-            <div v-else class="no-result apollo">No result :(</div>
-          </template>
-        </ApolloQuery>
+        <UsersTable />
       </v-card>
     </v-col>
   </v-row>
@@ -50,11 +52,14 @@
 
 <script>
 import UserCreateForm from "../components/UserCreateForm";
+import UsersTable from "../components/UsersTable";
+
 export default {
   name: "Users",
-  components: {UserCreateForm},
+  components: {UsersTable, UserCreateForm},
   data() {
     return {
+      tab: 'create',
       user: {
         forename: '',
         surname: '',
