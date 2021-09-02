@@ -86,6 +86,8 @@ export default {
         throw new Error('Error: One or more permission(s) not found.')
       }
 
+      //TODO: accept only unique names
+
       const role = {
         id: shortid.generate(),
         name: input.name,
