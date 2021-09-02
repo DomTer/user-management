@@ -7,6 +7,12 @@ query GetUserById($id: ID!) {
         phone
         roles {
             id
+            name
+            permissions {
+                id
+                name
+                description
+            }
         }
     }
 }

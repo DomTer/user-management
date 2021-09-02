@@ -126,11 +126,11 @@ export default {
     editedIndex: -1,
     selectedItem: {
       name: '',
-      permissions: ''
+      permissions: []
     },
     defaultItem: {
       name: '',
-      permissions: '',
+      permissions: [],
     },
   }),
 

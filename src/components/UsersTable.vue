@@ -141,8 +141,8 @@ export default {
       { text: 'Forename', value: 'forename' },
       { text: 'Surname', value: 'surname' },
       { text: 'E-Mail', value: 'mail' },
-      { text: 'Phone', value: 'phone' },
-      { text: 'Roles', value: 'roles' },
+      { text: 'Phone', value: 'phone', sortable: false  },
+      { text: 'Roles', value: 'roles', sortable: false  },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     users: [],
@@ -169,7 +169,13 @@ export default {
     roles: ALL_ROLES
   },
 
-  watch: {
+  computed: {
+    roleNames() {
+       return '22'
+    }
+  },
+
+    watch: {
     dialog (val) {
       val || this.close()
     },
