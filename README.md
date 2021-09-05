@@ -10,6 +10,11 @@ yarn install
 yarn serve
 ```
 
+### Generate the schema once
+```
+yarn apollo:schema:generate
+```
+
 ### Starts the Apollo Service 
 ```
 yarn apollo:start
